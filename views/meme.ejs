@@ -1,12 +1,12 @@
 <h3>Memes</h3>
 <div class="mt-3 mb-3">
-    <% memes.forEach(meme => { %>
+    <% for(var i=memes.length - 1; i>=0; i--) { %>
         <div class="card mx-3 my-4" style="width: 18rem; float: left;">
-            <img src="<%= meme.url %>" class="card-img-top" height="280px" alt="meme_image">
+            <img src="<%= memes[i].url %>" class="card-img-top" height="280px" alt="meme_image">
             <div class="card-body">
-                <h5 class="card-title"><%= meme.name %></h5>
-                <p class="card-text"><%= meme.caption %></p>
+                <h5 class="card-title"><%= memes[i].name %></h5>
+                <p class="card-text"><%= memes[i].caption %></p>
             </div>
         </div>
-    <% }) %>
+    <% } %>
 </div>
