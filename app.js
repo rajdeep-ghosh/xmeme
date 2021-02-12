@@ -33,7 +33,18 @@ const memeSchema = new mongoose.Schema({
 const Meme = mongoose.model('Meme', memeSchema);
 
 app.get('/', (req, res) => {
-    res.render("home");
+    Meme.find({}, (err, foundMemes) => {
+        if (!err) {
+            if (foundMemes) {
+                res.render("home", {memes: foundMemes});
+            } else {
+                res.render("home");
+            }
+        } else {
+            console.log(err);
+        }
+    });
+    // res.render("home");
 });
 
 app.post('/', (req, res) => {
@@ -42,7 +53,13 @@ app.post('/', (req, res) => {
         caption: req.body.memeCaption,
         url: req.body.memeURL
     });
-    meme.save();
-})
+    meme.save(function(err) {
+        if (!err) {
+            res.redirect('/');
+        } else {
+            console.log(err);
+        }
+    });
+});
 
 app.listen(8081, () => {console.log("Server started");});

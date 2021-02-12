@@ -2,6 +2,10 @@
     font-size: 2rem;
 }
 
+.form-label {
+    font-weight: 600;
+}
+
 hr.style { 
     height: 10px;
 	border: 0;
