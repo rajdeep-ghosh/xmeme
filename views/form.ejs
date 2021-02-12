@@ -2,18 +2,18 @@
     <h3>Submit Memes</h3>
 </div>
 <div class="mt-4">
-    <form>
+    <form action="/" method="POST">
         <div class="mb-3">
             <label class="form-label">Full Name</label>
-            <input type="email" class="form-control">
+            <input type="text" class="form-control" name="authorName">
         </div>
         <div class="mb-3">
             <label class="form-label">Caption</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" name="memeCaption">
         </div>
         <div class="mb-3">
             <label class="form-label">Meme URL</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" name="memeURL">
         </div>
         <button type="submit" class="mt-2 btn btn-dark">Submit</button>
     </form>

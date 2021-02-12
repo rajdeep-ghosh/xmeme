@@ -36,4 +36,13 @@ app.get('/', (req, res) => {
     res.render("home");
 });
 
+app.post('/', (req, res) => {
+    const meme = new Meme({
+        name: req.body.authorName,
+        caption: req.body.memeCaption,
+        url: req.body.memeURL
+    });
+    meme.save();
+})
+
 app.listen(8081, () => {console.log("Server started");});
