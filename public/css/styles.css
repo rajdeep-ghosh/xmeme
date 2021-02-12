@@ -1,3 +1,9 @@
 .heading {
     font-size: 2rem;
 }
+
+hr.style { 
+    height: 10px;
+	border: 0;
+	box-shadow: 0 10px 10px -10px #8c8b8b inset;
+  }
