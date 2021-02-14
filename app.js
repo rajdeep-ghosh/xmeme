@@ -1,3 +1,5 @@
+import dotenv from 'dotenv';
+dotenv.config();
 import express from 'express';
 import bodyParser from 'body-parser';
 import ejs from 'ejs';
@@ -12,7 +14,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
 
 // Connect MongoDB at default port 27017.
-mongoose.connect('mongodb://localhost:27017/xmemeDB', {
+mongoose.connect('mongodb+srv://' + process.env.AUTH + '@cluster0.4p9si.mongodb.net/xmemeDB?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true
