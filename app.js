@@ -7,6 +7,7 @@ import mongoose from 'mongoose';
 
 const app = express();
 
+// Declare dynamic port 
 const port = process.env.PORT || 3000;
 
 app.set('view engine', 'ejs');
@@ -36,6 +37,7 @@ const memeSchema = new mongoose.Schema({
 // Create meme model 
 const Meme = mongoose.model('Meme', memeSchema);
 
+// Render home page with content 
 app.get('/', (req, res) => {
     Meme.find({}, (err, foundMemes) => {
         if (!err) {
@@ -51,6 +53,7 @@ app.get('/', (req, res) => {
     // res.render("home");
 });
 
+// Get info from form and save in DB 
 app.post('/', (req, res) => {
     const meme = new Meme({
         name: req.body.authorName,
